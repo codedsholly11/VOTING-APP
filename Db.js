@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-const connectstring = process.env.connectstring;
+const connectstring = process.env.connectString;
 
 
 async function connectDb(){
