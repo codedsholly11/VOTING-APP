@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 
-
+// connect settings
 const connectstring = process.env.connectString;
 
 
