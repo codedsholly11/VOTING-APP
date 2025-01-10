@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 5000;
-const connectDb = require('./Db');
+const connectDb = require('./db');
 const Users = require('./models/User');
 const Voters = require('./models/Voter');
 const cors = require('cors');
@@ -37,6 +37,12 @@ app.get('/users', async (req,res)=>{
     const users = await Users.find({});
     res.json(users);
 });
+
+app.get('/users/:id', async (req,res)=>{
+    const {id} = req.params;
+    const user = await Users.findById(id);
+});
+
 app.patch('/users/:id', async (req,res)=>{
     const {id} = req.params;
     const users = await Users.findByIdAndUpdate(id, req.body, {new: true});
