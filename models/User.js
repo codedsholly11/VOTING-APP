@@ -16,6 +16,8 @@ const usersSchema = new mongoose.Schema({
         unique: true,
         match: [ /.+\@.+\..+/]
     },
+
+    // v identifiers
     voterId:{
         type: String,
         required: true,
