@@ -6,9 +6,11 @@ const Users = require('./models/User');
 const Voters = require('./models/Voter');
 const cors = require('cors');
 
-
+// middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// cors middleware
 app.use(cors(
     {
         origin:"*"
