@@ -50,9 +50,10 @@ app.get('/users/:id', async (req,res)=>{
     res.json(user);
 });
 
-app.get('/users/email', async (req,res)=>{
-    const {email} = req.params;
-    const user = await Users.findByEmail(email);
+app.get('/users/:email', async (req,res)=>{
+    const {email} = req.query;
+    const user = await Users.findOne(email);
+     
     if (!user){
         return res.status(404).json({error: "User not found"});
     }
