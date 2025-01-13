@@ -40,7 +40,7 @@ app.get('/users', async (req,res)=>{
     res.json(users);
 });
 
-app.get('/users/:id', async (req,res)=>{
+app.get('/user-id/:id', async (req,res)=>{
     const {id} = req.params;
     const user = await Users.findById(id);
 
@@ -50,9 +50,9 @@ app.get('/users/:id', async (req,res)=>{
     res.json(user);
 });
 
-app.get('/users/:email', async (req,res)=>{
-    const {email} = req.query;
-    const user = await Users.findOne(email);
+app.get('/user-email/:email', async (req,res)=>{
+    const {email} = req.params;
+    const user = await Users.findOne({email});
      
     if (!user){
         return res.status(404).json({error: "User not found"});
