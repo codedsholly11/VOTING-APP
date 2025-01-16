@@ -17,6 +17,12 @@ const usersSchema = new mongoose.Schema({
         match: [ /.+\@.+\..+/]
     },
 
+    password: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+
     // v identifiers
     voterId:{
         type: String,
